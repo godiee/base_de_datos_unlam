@@ -110,3 +110,16 @@ CASE
 END AS [Color]
 FROM Production.Product p
 ORDER BY Color;
+
+/*Ejercicio 19*/
+
+SELECT PC.Name AS Categoria, PS.Name AS Subcategoria, P.Name AS Descripcion
+FROM Production.Product P JOIN
+	 Production.ProductSubcategory PS ON P.ProductSubcategoryID = PS.ProductSubcategoryID JOIN
+	 Production.ProductCategory PC ON PS.ProductCategoryID = PC.ProductCategoryID;
+
+/*Ejercicio 20*/
+
+SELECT COUNT(DISTINCT ProductSubcategoryID) AS Cantidad_SubCategorias
+FROM Production.Product
+WHERE ProductSubcategoryID IS NOT NULL;
